@@ -18,20 +18,20 @@ public class MineSwapperTest extends TestCase {
         try {
             mineSwapper.setMineFiled(mineFiled);
             fail( "My method didn't throw when I expected it to" );
-        } catch (IllegalArgumentException illegalArgumentException) {
-        }
+        } catch (IllegalArgumentException illegalArgumentException) {}
+
         mineFiled = "..*.\n**p**\n...*";
         try {
             mineSwapper.setMineFiled(mineFiled);
             fail( "My method didn't throw when I expected it to" );
-        } catch (IllegalArgumentException illegalArgumentException) {
-        }
+        } catch (IllegalArgumentException illegalArgumentException) {}
+
         mineFiled = "..**.\n****\n...*";
         try {
             mineSwapper.setMineFiled(mineFiled);
             fail( "My method didn't throw when I expected it to" );
-        } catch (IllegalArgumentException illegalArgumentException) {
-        }
+        } catch (IllegalArgumentException illegalArgumentException) {}
+
         mineFiled = "..*.\n****\n...*";
         mineSwapper.setMineFiled(mineFiled);
         org.junit.Assert.assertTrue(mineSwapper.getMineFiled() == mineFiled);
@@ -41,8 +41,7 @@ public class MineSwapperTest extends TestCase {
         try {
             mineSwapper.getHintFiled();
             fail( "My method didn't throw when I expected it to" );
-        } catch (IllegalArgumentException illegalArgumentException) {
-        }
+        } catch (IllegalArgumentException illegalArgumentException){}
 
         mineFiled = "..*.\n****\n...*";
         mineSwapper.setMineFiled(mineFiled);
