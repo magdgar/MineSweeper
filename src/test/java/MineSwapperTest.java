@@ -14,35 +14,39 @@ public class MineSwapperTest extends TestCase {
         mineFiled="";
     }
 
-    public void testSetMineFiled(){
+    public void testSetMineFailureCase(){
         try {
             mineSwapper.setMineFiled(mineFiled);
-            fail( "My method didn't throw when I expected it to" );
+            fail( "SetMineFiled didn't throw when gets empty string " );
         } catch (IllegalArgumentException illegalArgumentException) {}
 
-        mineFiled = "..*.\n**p**\n...*";
+        mineFiled = "..*.\n*p**\n...*";
         try {
             mineSwapper.setMineFiled(mineFiled);
-            fail( "My method didn't throw when I expected it to" );
+            fail( "SetMineFiled didn't throw when gets undefined symbol" );
         } catch (IllegalArgumentException illegalArgumentException) {}
 
         mineFiled = "..**.\n****\n...*";
         try {
             mineSwapper.setMineFiled(mineFiled);
-            fail( "My method didn't throw when I expected it to" );
+            fail( "SetMineFiled didn't throw when gets different line length" );
         } catch (IllegalArgumentException illegalArgumentException) {}
+    }
 
+    public void testSetMineFiledSuccessCase(){
         mineFiled = "..*.\n****\n...*";
         mineSwapper.setMineFiled(mineFiled);
         org.junit.Assert.assertTrue(mineSwapper.getMineFiled() == mineFiled);
     }
 
-    public void testGetHintFiled(){
+    public void testGetHintFiledFailureCase(){
         try {
             mineSwapper.getHintFiled();
             fail( "My method didn't throw when I expected it to" );
         } catch (IllegalArgumentException illegalArgumentException){}
+    }
 
+    public void testGetHintFiledSuccessCase(){
         mineFiled = "..*.\n****\n...*";
         mineSwapper.setMineFiled(mineFiled);
         Assert.assertTrue("24*3\n****\n234*".equals(mineSwapper.getHintFiled()));
